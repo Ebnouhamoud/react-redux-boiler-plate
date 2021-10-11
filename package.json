@@ -1,0 +1,81 @@
+{
+  "name": "new-boiler-plate",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.6.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.22.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-testing-library": "^4.12.4",
+    "husky": "^7.0.2",
+    "jest-axe": "^5.0.1",
+    "jest-html-reporters": "^2.1.6",
+    "lint-staged": "^11.2.3",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false",
+    "test-watch": "react-scripts test",
+    "test-debug": "react-scripts --inspect-brk test --watchAll=false --runInBand",
+    "test-coverage": "npm test -- --coverage --runInBand",
+    "view-coverage": "bash -c \"start chrome $(realpath \"./coverage/lcov-report/index.html\")\"",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext js src",
+    "format": "prettier \"src/**/*.{js,jsx,ts,tsx,json,html,css,scss,md}\" --write"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged --allow-empty"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,html,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.(spec|test).[jt]s?(x)",
+      "**/?(*.)+(spec|test).[jt]s?(x)"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/testUtils",
+      "!src/pages/**/redux/index.js",
+      "!src/**/*.stories.js"
+    ]
+  }
+}
